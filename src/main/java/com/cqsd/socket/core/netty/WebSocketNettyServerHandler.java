@@ -1,5 +1,6 @@
 package com.cqsd.socket.core.netty;
 
+import com.cqsd.socket.core.netty.proto.BarrageProto;
 import com.cqsd.socket.core.service.impl.BarrageWatchInfoServiceImpl;
 import com.cqsd.socket.core.utils.BarrageConnectInfoUtils;
 import com.cqsd.socket.core.utils.BarrageMsgBeanUtils;

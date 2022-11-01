@@ -1,8 +1,8 @@
 package com.cqsd.socket.core.service.impl;
 
-import cn.wolfcode.core.consts.BarrageCacheKeyConst;
-import cn.wolfcode.core.service.IBarrageWatchInfoService;
-import cn.wolfcode.core.utils.BarrageCacheUtils;
+import com.cqsd.socket.core.consts.BarrageCacheKeyConst;
+import com.cqsd.socket.core.service.IBarrageWatchInfoService;
+import com.cqsd.socket.core.utils.BarrageCacheUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;

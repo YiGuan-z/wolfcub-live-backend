@@ -1,6 +1,7 @@
 package com.cqsd.socket.core.service;
 
-import com.cqsd.socket.core.netty.BarrageProto;
+
+import com.cqsd.socket.core.netty.proto.BarrageProto;
 import io.netty.channel.ChannelHandlerContext;
 
 public interface IBarrageMsgTypeService {

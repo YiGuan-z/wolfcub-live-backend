@@ -1,6 +1,7 @@
 package com.cqsd.socket.core.service;
 
-import cn.wolfcode.domain.Video;
+
+import com.cqsd.data.entry.Video;
 
 public interface IVideoService {
 

@@ -1,13 +1,14 @@
 package com.cqsd.socket.core.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.wolfcode.core.anno.BarrageAnnotation;
-import cn.wolfcode.core.consts.BarrageMsgTypeConst;
-import cn.wolfcode.core.netty.proto.BarrageProto;
-import cn.wolfcode.core.service.IBarrageMsgTypeService;
-import cn.wolfcode.core.utils.BarrageDateUtils;
-import cn.wolfcode.domain.BulletMsg;
-import cn.wolfcode.service.IBulletMsgService;
+
+import com.cqsd.data.entry.BulletMsg;
+import com.cqsd.data.serivce.BulletMsgService;
+import com.cqsd.socket.core.anno.BarrageAnnotation;
+import com.cqsd.socket.core.consts.BarrageMsgTypeConst;
+import com.cqsd.socket.core.netty.proto.BarrageProto;
+import com.cqsd.socket.core.service.IBarrageMsgTypeService;
+import com.cqsd.socket.core.utils.BarrageDateUtils;
 import com.google.protobuf.TextFormat;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
@@ -21,9 +22,9 @@ import java.util.List;
 @Slf4j
 public class BarrageHistoryListServiceImpl implements IBarrageMsgTypeService {
 
-    private final IBulletMsgService barrageMsgService;
+    private final BulletMsgService barrageMsgService;
 
-    public BarrageHistoryListServiceImpl(IBulletMsgService barrageMsgService) {
+    public BarrageHistoryListServiceImpl(BulletMsgService barrageMsgService) {
         this.barrageMsgService = barrageMsgService;
     }
 

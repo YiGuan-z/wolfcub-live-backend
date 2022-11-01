@@ -1,13 +1,12 @@
 package com.cqsd.socket.core.service.impl;
 
-import cn.wolfcode.core.consts.BarrageMsgTypeConst;
-import cn.wolfcode.core.netty.proto.BarrageProto;
-import cn.wolfcode.core.service.IBarrageMsgTypeService;
-import cn.wolfcode.core.service.IBarrageWatchInfoService;
-import cn.wolfcode.service.IBulletMsgService;
+
+import com.cqsd.data.serivce.BulletMsgService;
 import com.cqsd.socket.core.anno.BarrageAnnotation;
 import com.cqsd.socket.core.consts.BarrageMsgTypeConst;
+import com.cqsd.socket.core.netty.proto.BarrageProto;
 import com.cqsd.socket.core.service.IBarrageMsgTypeService;
+import com.cqsd.socket.core.service.IBarrageWatchInfoService;
 import com.google.protobuf.TextFormat;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
@@ -22,10 +21,10 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class BarrageHeartBeatMsgServiceImpl implements IBarrageMsgTypeService {
 
-    private final IBulletMsgService msgService;
+    private final BulletMsgService msgService;
     private final IBarrageWatchInfoService watchInfoService;
 
-    public BarrageHeartBeatMsgServiceImpl(IBarrageWatchInfoService watchInfoService, IBulletMsgService msgService) {
+    public BarrageHeartBeatMsgServiceImpl(IBarrageWatchInfoService watchInfoService, BulletMsgService msgService) {
         this.watchInfoService = watchInfoService;
         this.msgService = msgService;
     }

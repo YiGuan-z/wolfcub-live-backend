@@ -1,16 +1,17 @@
 package com.cqsd.socket.core.service.impl;
 
-import cn.wolfcode.core.service.IVideoService;
-import cn.wolfcode.domain.Video;
-import cn.wolfcode.mapper.VideoMapper;
+
+import com.cqsd.data.entry.Video;
+import com.cqsd.data.mapper.VideoMapper;
+import com.cqsd.socket.core.service.IVideoService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class VideoServiceImpl implements IVideoService {
+public class BarrageVideoServiceImpl implements IVideoService {
 
     private final VideoMapper videoMapper;
 
-    public VideoServiceImpl(VideoMapper videoMapper) {
+    public BarrageVideoServiceImpl(VideoMapper videoMapper) {
         this.videoMapper = videoMapper;
     }
 

@@ -1,9 +1,10 @@
 package com.cqsd.socket.core.service.impl;
 
-import cn.wolfcode.core.bo.BarrageMsgBo;
-import cn.wolfcode.core.consts.BarrageMsgTypeConst;
-import cn.wolfcode.core.netty.proto.BarrageProto;
-import cn.wolfcode.core.service.IBarrageMsgSendToClientService;
+
+import com.cqsd.socket.core.bo.BarrageMsgBo;
+import com.cqsd.socket.core.consts.BarrageMsgTypeConst;
+import com.cqsd.socket.core.netty.proto.BarrageProto;
+import com.cqsd.socket.core.service.IBarrageMsgSendToClientService;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

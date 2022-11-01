@@ -1,11 +1,12 @@
 package com.cqsd.socket.core.service.impl;
 
-import cn.wolfcode.core.anno.BarrageAnnotation;
-import cn.wolfcode.core.consts.BarrageMsgTypeConst;
-import cn.wolfcode.core.netty.proto.BarrageProto;
-import cn.wolfcode.core.service.IBarrageMsgTypeService;
-import cn.wolfcode.core.service.IBarrageWatchInfoService;
-import cn.wolfcode.core.utils.BarrageConnectInfoUtils;
+
+import com.cqsd.socket.core.anno.BarrageAnnotation;
+import com.cqsd.socket.core.consts.BarrageMsgTypeConst;
+import com.cqsd.socket.core.netty.proto.BarrageProto;
+import com.cqsd.socket.core.service.IBarrageMsgTypeService;
+import com.cqsd.socket.core.service.IBarrageWatchInfoService;
+import com.cqsd.socket.core.utils.BarrageConnectInfoUtils;
 import com.google.protobuf.TextFormat;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;

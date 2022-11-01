@@ -3,21 +3,22 @@ package com.cqsd.socket.core.service.impl;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import cn.wolfcode.core.anno.BarrageAnnotation;
-import cn.wolfcode.core.bo.BarrageMsgBo;
-import cn.wolfcode.core.consts.BarrageCacheKeyConst;
-import cn.wolfcode.core.consts.BarrageMsgTypeConst;
-import cn.wolfcode.core.consts.BarrageVideoConst;
-import cn.wolfcode.core.netty.proto.BarrageProto;
-import cn.wolfcode.core.service.IBarrageMsgSendToClientService;
-import cn.wolfcode.core.service.IBarrageMsgTypeService;
-import cn.wolfcode.core.utils.BarrageCacheUtils;
-import cn.wolfcode.core.utils.BarrageConnectInfoUtils;
-import cn.wolfcode.core.utils.BarrageMsgSensitiveUtils;
-import cn.wolfcode.domain.BulletMsg;
-import cn.wolfcode.domain.User;
-import cn.wolfcode.domain.Video;
-import cn.wolfcode.service.IBulletMsgService;
+
+import com.cqsd.data.entry.BulletMsg;
+import com.cqsd.data.entry.User;
+import com.cqsd.data.entry.Video;
+import com.cqsd.data.serivce.BulletMsgService;
+import com.cqsd.socket.core.anno.BarrageAnnotation;
+import com.cqsd.socket.core.bo.BarrageMsgBo;
+import com.cqsd.socket.core.consts.BarrageCacheKeyConst;
+import com.cqsd.socket.core.consts.BarrageMsgTypeConst;
+import com.cqsd.socket.core.consts.BarrageVideoConst;
+import com.cqsd.socket.core.netty.proto.BarrageProto;
+import com.cqsd.socket.core.service.IBarrageMsgSendToClientService;
+import com.cqsd.socket.core.service.IBarrageMsgTypeService;
+import com.cqsd.socket.core.utils.BarrageCacheUtils;
+import com.cqsd.socket.core.utils.BarrageConnectInfoUtils;
+import com.cqsd.socket.core.utils.BarrageMsgSensitiveUtils;
 import com.google.protobuf.TextFormat;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
@@ -36,9 +37,9 @@ import java.util.List;
 public class BarrageReceiveMsgServiceImpl implements IBarrageMsgTypeService {
 
     private final IBarrageMsgSendToClientService barrageSendMsgToClientService;
-    private final IBulletMsgService msgService;
+    private final BulletMsgService msgService;
 
-    public BarrageReceiveMsgServiceImpl(IBarrageMsgSendToClientService barrageSendMsgToClientService, IBulletMsgService msgService) {
+    public BarrageReceiveMsgServiceImpl(IBarrageMsgSendToClientService barrageSendMsgToClientService, BulletMsgService msgService) {
         this.barrageSendMsgToClientService = barrageSendMsgToClientService;
         this.msgService = msgService;
     }

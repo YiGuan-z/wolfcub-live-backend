@@ -13,10 +13,11 @@ import java.util.List;
 
 /**
  * 弹幕敏感词管理
+ *
  * @author caseycheng
  */
 @Service
-public class BulletMsgSensitiveServiceImpl extends ServiceImpl<BulletMsgSensitiveMapper,BulletMsgSensitive> implements BulletMsgSensitiveService  {
+public class BulletMsgSensitiveServiceImpl extends ServiceImpl<BulletMsgSensitiveMapper, BulletMsgSensitive> implements BulletMsgSensitiveService {
 	private final BulletMsgSensitiveMapper mapper;
 	
 	public BulletMsgSensitiveServiceImpl(BulletMsgSensitiveMapper mapper) {
@@ -24,32 +25,30 @@ public class BulletMsgSensitiveServiceImpl extends ServiceImpl<BulletMsgSensitiv
 	}
 	
 	public Page<BulletMsgSensitive> query(QueryObject qo) {
-		Long count = mapper.selectForCount(qo);
-		if (count == null) {
-			return Page.empty(qo.getCurrent(), qo.getLimit());
-		}
-		List<BulletMsgSensitive> bulletMsgSensitives = mapper.selectForList(qo);
-		return new Page<>(qo.getCurrent(), qo.getLimit(), count, bulletMsgSensitives);
+		final var page = new com.baomidou.mybatisplus.extension.plugins.pagination.Page<BulletMsgSensitive>();
+		page.setCurrent(qo.getCurrent()).setSize(qo.getLimit());
+		final var selectPage = mapper.selectPage(page, null);
+		return new Page<>(qo.getCurrent(), qo.getLimit(), selectPage.getTotal(), selectPage.getRecords());
 	}
 	
 	public List<BulletMsgSensitive> findAll() {
-		return mapper.selectAll();
+		return mapper.selectList(null);
 	}
 	
-	public void save(BulletMsgSensitive obj) {
+	public boolean save(BulletMsgSensitive obj) {
 		obj.setCreateTime(new Date());
-		mapper.insert(obj);
+		return mapper.insert(obj) > 0;
 	}
 	
-	public void updateById(BulletMsgSensitive obj) {
-		mapper.updateByPrimaryKey(obj);
+	public boolean updateById(BulletMsgSensitive obj) {
+		return mapper.updateById(obj) > 0;
 	}
 	
 	public BulletMsgSensitive findById(Long id) {
-		return mapper.selectByPrimaryKey(id);
+		return mapper.selectById(id);
 	}
 	
 	public void deleteById(Long id) {
-		mapper.deleteByPrimaryKey(id);
+		mapper.deleteById(id);
 	}
 }

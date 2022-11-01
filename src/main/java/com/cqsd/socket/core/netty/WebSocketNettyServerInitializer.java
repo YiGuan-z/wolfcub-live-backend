@@ -1,6 +1,7 @@
 package com.cqsd.socket.core.netty;
 
 import com.cqsd.socket.core.consts.BarrageWebSocketConst;
+import com.cqsd.socket.core.netty.proto.BarrageProto;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
