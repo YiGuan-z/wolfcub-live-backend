@@ -2,6 +2,7 @@ package com.cqsd.data.entry;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,10 +11,14 @@ import lombok.Setter;
 import java.util.Date;
 import java.util.StringJoiner;
 
+/**
+ * 日志？？？
+ */
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName("logging")
 public class LoggerModule {
 	
 	@TableId(type = IdType.AUTO)

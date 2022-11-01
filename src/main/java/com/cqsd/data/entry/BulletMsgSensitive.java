@@ -10,6 +10,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+/**
+ * 弹幕举报管理
+ */
 @Getter
 @Setter
 @TableName("t_bullet_msg_sensitive")

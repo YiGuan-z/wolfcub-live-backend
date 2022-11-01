@@ -2,6 +2,7 @@ package com.cqsd.data.entry;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,8 +10,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+/**
+ * 弹幕举报管理
+ */
 @Getter
 @Setter
+@TableName("t_report")
 public class Report {
     /** 主键*/
     @TableId(type = IdType.AUTO)

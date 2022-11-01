@@ -1,8 +1,10 @@
 package com.cqsd.config;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceWrapper;
+import com.cqsd.net.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
@@ -24,5 +26,15 @@ public class AppConfig {
 		wrapper.setPassword(environment.getProperty("db.password"));
 		return wrapper;
 	}
+	
+	/**
+	 * User Login Interceptor
+	 * @return bean
+	 */
+	@Bean
+	public LoginInterceptor loginInterceptor(){
+		return new LoginInterceptor();
+	}
+	
 	
 }

@@ -3,6 +3,7 @@ package com.cqsd.data.entry;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.cqsd.vo.LoginInfo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -13,8 +14,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+/**
+ * 员工管理
+ */
 @Getter
 @Setter
+@TableName("sys_emplopyee")
 public class Employee {
 	@TableId(type = IdType.AUTO)
 	

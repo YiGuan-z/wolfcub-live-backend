@@ -1,0 +1,93 @@
+syntax = "proto3";
+option java_package = "com.cqsd.socket.core.netty.proto";
+option java_outer_classname = "BarrageProto";
+
+// 总的消息体
+message Barrage {
+  string msgType  = 1;
+  bytes bytesData = 2;
+}
+
+// 心跳回复包
+message WebClientHeartBeatResp {
+  int32 barrageTotalCount = 1;
+  int32 barrageOnlineCount = 2;
+  int32 barrageTotalWatchCount = 4;
+}
+
+// 心跳请求包
+message WebClientHeartBeatReq {
+  string userId = 1;
+  string videoId = 2;
+}
+
+// web客户端弹幕消息内容请求
+message WebClientSendBarrageReq {
+  string userId = 1;
+  string videoId = 2;
+  string msg = 3;
+  string msgColor = 4;
+  int32 msgPosition = 5;
+  int32 msgVideoTime = 6;
+}
+
+// web客户端弹幕消息内容响应
+message WebClientSendBarrageResp {
+  string msg = 1;
+  string msgColor = 2;
+  int32 msgPosition = 3;
+}
+
+// web客户端登录信息
+message WebClientLoginReq {
+  string userId   = 1;
+  string videoId  = 2;
+}
+// web客户端登录信息响应
+message WebClientLoginResp {
+  int32 barrageTotalCount = 1;
+  repeated string msgColorList = 2;
+  int32 barrageOnlineCount = 3;
+  int32 barrageTotalWatchCount = 4;
+  string videoTitle = 5;
+  string videoCreateTime = 6;
+}
+
+// web客户端退出信息
+message WebClientLogoutReq {
+  string userId   = 1;
+  string videoId  = 2;
+}
+
+// 历史弹幕消息实体
+message BarrageHistoryMessage{
+  string userId = 1;
+  string videoId = 2;
+  string msg = 3;
+  string msgColor = 4;
+  int32 msgPosition = 5;
+  string sendTime = 6;
+  string createTime = 7;
+}
+
+// 历史弹幕请求
+message WebClientBarrageHistoryListReq {
+  string videoId = 1;
+}
+
+// 历史弹幕响应
+message WebClientBarrageHistoryListResp {
+  repeated BarrageHistoryMessage list = 1;
+}
+
+// 滚动弹幕请求
+message WebClientBarrageMsgRollingReq {
+  string userId = 1;
+  string videoId = 2;
+  int32 currentVideoTime = 3;
+}
+
+// 滚动弹幕响应
+message WebClientBarrageMsgRollingResp {
+  repeated BarrageHistoryMessage list = 1;
+}

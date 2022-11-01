@@ -2,18 +2,22 @@ package com.cqsd.data.entry;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
 
-import static com.cqsd.utils.Constants.DEFAULT_FORMAT_DATETIME_PATTERN;
-import static com.cqsd.utils.Constants.DEFAULT_FORMAT_DATE_PATTERN;
+import static com.cqsd.utils.WebConstants.DEFAULT_FORMAT_DATETIME_PATTERN;
+import static com.cqsd.utils.WebConstants.DEFAULT_FORMAT_DATE_PATTERN;
 
-
+/**
+ * 视频管理
+ */
 @Getter
 @Setter
+@TableName("t_video")
 public class Video {
     /**
      * 主键 id
