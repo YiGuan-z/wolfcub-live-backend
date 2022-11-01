@@ -1,0 +1,3 @@
+logging:
+  level:
+    com.cqsd.data.mapper: debug
