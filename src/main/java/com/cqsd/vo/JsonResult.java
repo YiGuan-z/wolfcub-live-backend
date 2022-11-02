@@ -1,15 +1,11 @@
 package com.cqsd.vo;
 
-import com.cqsd.utils.WebConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.StringJoiner;
-
 import static com.cqsd.utils.WebConstants.*;
-import static com.cqsd.utils.WebConstants.DEFAULT_FAILED_CODE;
 
 /**
  * return Json

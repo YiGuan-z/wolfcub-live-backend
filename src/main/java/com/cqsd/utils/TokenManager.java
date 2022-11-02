@@ -80,6 +80,7 @@ abstract public class TokenManager {
 	}
 	
 	public static LoginInfo removeInfo(String token) {
+		if (Objects.isNull(token)) return null;
 		return TOKEN_MAP.remove(token);
 	}
 }

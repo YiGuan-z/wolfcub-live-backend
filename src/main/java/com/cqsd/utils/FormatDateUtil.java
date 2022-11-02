@@ -8,7 +8,7 @@ import java.util.Date;
  * @date 2022/10/17 17:39
  * @Version cn.wolfcode.utils
  */
-public class FormatDateUtils {
+public class FormatDateUtil {
 
 
     public static Date maxNowTime(){

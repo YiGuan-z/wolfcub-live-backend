@@ -1,10 +1,10 @@
 package com.cqsd.net.controller;
 
 import com.cqsd.data.serivce.EmployeeService;
+import com.cqsd.utils.TokenManager;
 import com.cqsd.vo.JsonResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.cqsd.vo.LoginInfo;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author caseycheng
@@ -22,5 +22,21 @@ public class LoginController {
 	@GetMapping("/login")
 	public JsonResult<?> userLogin(String username, String password) throws Exception {
 		return JsonResult.success(service.login(username, password));
+	}
+	
+	@GetMapping("/logout")
+	public JsonResult<?> userLogout(@RequestHeader(TokenManager.TOKEN_NAME) String token) {
+		service.logout(token);
+		return JsonResult.success();
+	}
+	
+	@GetMapping("/info")
+	public JsonResult<LoginInfo> getLoginInfo(@RequestHeader(TokenManager.TOKEN_NAME) String token) {
+		return JsonResult.success(TokenManager.getInfo(token));
+	}
+	@PutMapping("/reset/{id}")
+	public JsonResult<?> resetPassword(@PathVariable("id") Long id){
+		service.resetPwd(id);
+		return JsonResult.success();
 	}
 }

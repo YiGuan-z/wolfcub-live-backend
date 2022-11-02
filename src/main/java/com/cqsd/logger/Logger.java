@@ -35,7 +35,7 @@ public class Logger {
 	 *
 	 * @param pjp
 	 * @return
-	 * @throws NoSuchMethodException
+	 *
 	 */
 	private Log getLogAnnotation(ProceedingJoinPoint pjp) {
 		try {

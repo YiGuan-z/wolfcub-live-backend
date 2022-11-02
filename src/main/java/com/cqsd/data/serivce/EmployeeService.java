@@ -8,7 +8,11 @@ import java.rmi.server.ExportException;
 public interface EmployeeService extends IService<Employee> {
 	String login(String username, String password) throws LoginError;
 	
-	 class LoginError extends Exception {
+	void logout(String token);
+	
+	void resetPwd(Long id);
+	
+	class LoginError extends Exception {
 		 /**
 		  * Constructs a new exception with the specified detail message.  The
 		  * cause is not initialized, and may subsequently be initialized by

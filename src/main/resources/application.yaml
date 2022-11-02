@@ -1,3 +1,6 @@
 logging:
   level:
     com.cqsd.data.mapper: debug
+defalt:
+  config:
+    password: 111111

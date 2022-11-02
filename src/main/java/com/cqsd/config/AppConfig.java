@@ -2,9 +2,9 @@ package com.cqsd.config;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceWrapper;
 import com.cqsd.net.interceptor.LoginInterceptor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
@@ -12,6 +12,7 @@ import org.springframework.core.env.Environment;
 @PropertySource("classpath:db.properties")
 public class AppConfig {
 	private final Environment environment;
+	private static String employeeDefaltPassword;
 	
 	public AppConfig(Environment environment) {
 		this.environment = environment;
@@ -29,12 +30,26 @@ public class AppConfig {
 	
 	/**
 	 * User Login Interceptor
+	 *
 	 * @return bean
 	 */
 	@Bean
-	public LoginInterceptor loginInterceptor(){
+	public LoginInterceptor loginInterceptor() {
 		return new LoginInterceptor();
 	}
 	
+	public String getEmployeeDefaltPassword() {
+		return employeeDefaltPassword;
+	}
 	
+	/**
+	 * set defaltPassword
+	 *
+	 * @param employeeDefaltPassword defaltPassword
+	 */
+	@Value("${defalt.config.password}")
+	
+	public void setEmployeeDefaltPassword(String employeeDefaltPassword) {
+		AppConfig.employeeDefaltPassword = employeeDefaltPassword;
+	}
 }
