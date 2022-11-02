@@ -1,13 +1,23 @@
 package com.cqsd.config;
 
 import com.cqsd.net.interceptor.LoginInterceptor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Configuration
 public class WebMVConfig implements WebMvcConfigurer {
 	private final LoginInterceptor loginInterceptor;
+	@Value("${my.login.interceptor.patterns}")
+	private String[] patterns;
+	@Value("${my.login.interceptor.excludepatterns}")
+	
+	private String[] excludePathPatterns;
 	
 	public WebMVConfig(LoginInterceptor loginInterceptor) {
 		this.loginInterceptor = loginInterceptor;
@@ -25,8 +35,8 @@ public class WebMVConfig implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry
 				.addInterceptor(loginInterceptor)
-				.addPathPatterns("/**")
-				.excludePathPatterns("/login", "/verifyCode", "/user/login", "/upload/**");
+				.addPathPatterns(patterns)
+				.excludePathPatterns(excludePathPatterns);
 		
 	}
 }

@@ -4,3 +4,8 @@ logging:
 defalt:
   config:
     password: 111111
+my:
+  login:
+    interceptor:
+      patterns: /**
+      excludepatterns: /login,/verifyCode
