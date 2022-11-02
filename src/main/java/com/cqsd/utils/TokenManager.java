@@ -24,7 +24,7 @@ abstract public class TokenManager {
 	 * @return Token
 	 */
 	
-	public static String getToken() {
+	public static String createToken() {
 		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 	

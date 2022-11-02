@@ -34,8 +34,7 @@ public class BulletMsgServiceImpl extends ServiceImpl<BulletMsgMapper, BulletMsg
 		//        where video_id = #{videoId}
 		final var wrapper = new QueryWrapper<BulletMsg>();
 		wrapper.eq("video_id", videoId);
-		baseMapper.selectList(wrapper);
-		return null;
+		return baseMapper.selectList(wrapper);
 	}
 	
 	@Override
