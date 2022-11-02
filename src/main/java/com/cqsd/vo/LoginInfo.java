@@ -12,7 +12,7 @@ import org.springframework.beans.BeanUtils;
 public class LoginInfo {
 
     private Long id;
-    private String name="";
+    private String name;
     private String username;
     private String avatar;
     public static LoginInfo of(Object obj){

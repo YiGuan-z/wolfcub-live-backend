@@ -1,5 +1,6 @@
 package com.cqsd.data.serivce.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cqsd.data.entry.BulletMsg;
 import com.cqsd.data.mapper.BulletMsgMapper;
@@ -9,24 +10,39 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 弹幕举报管理
+ * 弹幕消息查询
+ *
  * @author caseycheng
- * TODO 待实现
  */
+// FIXME: 2022/11/2
 @Service
 public class BulletMsgServiceImpl extends ServiceImpl<BulletMsgMapper, BulletMsg> implements BulletMsgService {
 	@Override
 	public int getMsgCountByVideoId(String videoId) {
-		return 0;
+		//sql
+		//    select count(*)
+		//        from t_bullet_msg
+		//        where video_id = #{videoId} and status = 0
+		final var wrapper = new QueryWrapper<BulletMsg>();
+		wrapper.eq("video_id", videoId).and(wr -> wr.eq("status", 0));
+		return Math.toIntExact(baseMapper.selectCount(wrapper));
 	}
 	
 	@Override
 	public List<BulletMsg> getListByVideoId(String videoId) {
+		// select * from t_bullet_msg
+		//        where video_id = #{videoId}
+		final var wrapper = new QueryWrapper<BulletMsg>();
+		wrapper.eq("video_id", videoId);
+		baseMapper.selectList(wrapper);
 		return null;
 	}
 	
 	@Override
 	public List<BulletMsg> getRollingMessages(String videoId, int currentVideoTime) {
-		return null;
+		// select * from t_bullet_msg where video_id = #{videoId} and video_time = #{currentVideoTime}
+		final var wrapper = new QueryWrapper<BulletMsg>();
+		wrapper.eq("video_id", videoId).eq("video_time", currentVideoTime);
+		return baseMapper.selectList(wrapper);
 	}
 }
