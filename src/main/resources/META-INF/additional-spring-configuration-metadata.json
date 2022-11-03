@@ -1,0 +1,22 @@
+{
+  "properties": [
+    {
+      "name": "my.netty.port",
+      "defaultValue": 9999,
+      "sourceType":"com.cqsd.config.WebSocketConfig",
+      "type": "java.lang.Integer"
+    },
+    {
+      "name": "my.login.interceptor.patterns",
+      "defaultValue": "/**",
+      "sourceType": "com.cqsd.config.LoginConfig",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "my.login.interceptor.excludepatterns",
+      "defaultValue": ["/login","/verifyCode"],
+      "sourceType": "com.cqsd.config.LoginConfig",
+      "type": "java.lang.String[]"
+    }
+  ]
+}

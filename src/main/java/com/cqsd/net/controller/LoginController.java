@@ -6,6 +6,8 @@ import com.cqsd.vo.JsonResult;
 import com.cqsd.vo.LoginInfo;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 /**
  * @author caseycheng
  * @date 2022/11/2-02:49
@@ -34,8 +36,13 @@ public class LoginController {
 	public JsonResult<LoginInfo> getLoginInfo(@RequestHeader(TokenManager.TOKEN_NAME) String token) {
 		return JsonResult.success(TokenManager.getInfo(token));
 	}
-	@PutMapping("/reset/{id}")
-	public JsonResult<?> resetPassword(@PathVariable("id") Long id){
+	
+	@PutMapping("/reset")
+	public JsonResult<?> resetPassword(@RequestHeader(TokenManager.TOKEN_NAME) String token) {
+		final var id = TokenManager.getInfo(token).getId();
+		if (id == null) {
+			return JsonResult.failed();
+		}
 		service.resetPwd(id);
 		return JsonResult.success();
 	}

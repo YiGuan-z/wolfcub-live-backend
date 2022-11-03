@@ -1,25 +1,35 @@
 package com.cqsd.config;
 
 import com.cqsd.net.interceptor.LoginInterceptor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.Arrays;
-import java.util.List;
-
 @Configuration
-public class WebMVConfig implements WebMvcConfigurer {
+@ConfigurationProperties(prefix = "my.login.interceptor")
+public class LoginConfig implements WebMvcConfigurer {
 	private final LoginInterceptor loginInterceptor;
-	@Value("${my.login.interceptor.patterns}")
 	private String[] patterns;
-	@Value("${my.login.interceptor.excludepatterns}")
+	private String[] excludePatterns;
 	
-	private String[] excludePathPatterns;
+	/**
+	 * 设置登陆拦截需要拦截的url
+	 * @param patterns url数组
+	 */
+	public void setPatterns(String[] patterns) {
+		this.patterns = patterns;
+	}
 	
-	public WebMVConfig(LoginInterceptor loginInterceptor) {
+	/**
+	 * 设置需要排除的url
+	 * @param excludePatterns url数组
+	 */
+	public void setExcludePatterns(String[] excludePatterns) {
+		this.excludePatterns = excludePatterns;
+	}
+	
+	public LoginConfig(LoginInterceptor loginInterceptor) {
 		this.loginInterceptor = loginInterceptor;
 	}
 	
@@ -36,7 +46,7 @@ public class WebMVConfig implements WebMvcConfigurer {
 		registry
 				.addInterceptor(loginInterceptor)
 				.addPathPatterns(patterns)
-				.excludePathPatterns(excludePathPatterns);
+				.excludePathPatterns(excludePatterns);
 		
 	}
 }

@@ -8,4 +8,6 @@ my:
   login:
     interceptor:
       patterns: /**
-      excludepatterns: /login,/verifyCode
+      exclude-patterns: /login,/verifyCode
+  netty:
+    port: 9999
