@@ -24,7 +24,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 		if (StringUtils.hasLength(query.getKeyword())) {
 			queryWrapper.like(User::getUsername, query.getKeyword()).or(qw -> qw.like(User::getNickname, query.getKeyword()));
 		}
-		if (Objects.nonNull(query.getStatus())) {
+		if (Objects.nonNull(query.getStatus())&&query.getStatus()!=-1) {
 			queryWrapper.eq(User::getStatus, query.getStatus());
 		}
 		final Page<User> page = Page.of(query.getCurrent(), query.getLimit());
