@@ -5,6 +5,6 @@ import com.cqsd.data.entry.Department;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface DepartMentMapper extends BaseMapper<Department> {
+public interface DepartmentMapper extends BaseMapper<Department> {
 
 }
