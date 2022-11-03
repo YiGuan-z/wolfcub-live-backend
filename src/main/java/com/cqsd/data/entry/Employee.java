@@ -43,7 +43,7 @@ public class Employee {
 	
 	public static Employee of(LoginInfo info) {
 		final var employee = new Employee();
-		employee.dept = new Department();
+//		employee.dept = new Department();
 		if (info == null) {
 			return employee;
 		}

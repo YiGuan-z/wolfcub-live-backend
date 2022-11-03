@@ -17,7 +17,7 @@ public class LoginInfo {
     private String avatar;
     public static LoginInfo of(Object obj){
         final var info = new LoginInfo();
-        BeanUtils.copyProperties(info,obj);
+        BeanUtils.copyProperties(obj,info);
         return info;
     }
 }
