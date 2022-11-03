@@ -2,6 +2,7 @@ package com.cqsd.data.entry;
 
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.cqsd.vo.LoginInfo;
@@ -19,7 +20,7 @@ import java.util.Date;
  */
 @Getter
 @Setter
-@TableName("sys_emplopyee")
+@TableName("sys_employee")
 public class Employee {
 	@TableId(type = IdType.AUTO)
 	
@@ -32,10 +33,12 @@ public class Employee {
 	private String email;
 	private Integer age;
 	private Boolean admin;
+	@TableField(select = false)
 	private Department dept;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@TableField("hireDate")
 	private Date hireDate;
 	
 	public static Employee of(LoginInfo info) {
