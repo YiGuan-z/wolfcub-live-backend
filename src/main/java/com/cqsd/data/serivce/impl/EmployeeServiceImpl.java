@@ -33,8 +33,10 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
 		final var map = list.parallelStream().collect(Collectors.toMap(Employee::getPassword, emp -> emp));
 		final var employee = map.get(password);
 		if (Objects.nonNull(employee)) {
-			TokenManager.addInfo(TokenManager.createToken()
+			final var token = TokenManager.createToken();
+			TokenManager.addInfo(token
 					, LoginInfo.of(employee));
+			return token;
 		}
 		throw new LoginError("账号或密码错误");
 	}

@@ -7,7 +7,7 @@ defalt:
 my:
   login:
     interceptor:
-      patterns: /**
+      patterns: /dafs
       exclude-patterns: /login,/verifyCode
   netty:
     port: 9999
