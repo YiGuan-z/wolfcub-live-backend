@@ -1,7 +1,9 @@
 package com.cqsd.data.serivce;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.cqsd.data.entry.Employee;
+import com.cqsd.data.qo.QueryObject;
 
 import java.rmi.server.ExportException;
 
@@ -11,7 +13,9 @@ public interface EmployeeService extends IService<Employee> {
 	void logout(String token);
 	
 	void resetPwd(Long id);
-	
+
+	Page<Employee> selectForList(QueryObject qo);
+
 	class LoginError extends Exception {
 		 /**
 		  * Constructs a new exception with the specified detail message.  The
@@ -25,5 +29,7 @@ public interface EmployeeService extends IService<Employee> {
 			 super(message);
 		 }
 	 }
+
+
 }
 
