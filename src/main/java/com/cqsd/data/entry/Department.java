@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringJoiner;
 
 /**
@@ -27,13 +29,16 @@ public class Department {
 	@TableField("parent_id")
 	private Long parentId;
 	@TableField(select = false)
-	private Department parent;
+	private List<Department> children=new ArrayList<>();
+	public void addParent(Department son){
+		this.children.add(son);
+	}
 	
-	public Department(Object id, Object name, Object sn,Object parentId) {
+	public Department(Object id, Object name, Object sn, Object parentId) {
 		this.id = (long) id;
 		this.name = (String) name;
 		this.sn = (String) sn;
-		this.parentId=(Long) parentId;
+		this.parentId = (Long) parentId;
 	}
 	
 	@Override
@@ -43,7 +48,7 @@ public class Department {
 				.add("name='" + name + "'")
 				.add("sn='" + sn + "'")
 				.add("parentId=" + parentId)
-				.add("parent=" + parent)
+				.add("children=" + children)
 				.toString();
 	}
 }

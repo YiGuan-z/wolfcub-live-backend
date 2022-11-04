@@ -19,10 +19,11 @@ class TreeDataTest {
 				.collect(Collectors.toMap(Department::getId, dept -> dept));
 //		System.out.println(cache);
 		final var list = departmentList.parallelStream()
+//				.map(TreeData::of)
 				.filter(v -> {
 					if (v.getParentId() != null) {
 						final var department = cache.get(v.getParentId());
-						department.setParent(v);
+						department.addParent(v);
 					}
 					return v.getParentId() == null;
 				}).collect(Collectors.toList());
